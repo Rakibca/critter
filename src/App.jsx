@@ -33,8 +33,19 @@ Here's the raw HTML:
 
 function App() {
   return (
-    <article>
-      <h1>Helloooo</h1>
+    <article style={{ filter: "var(--shadow-elevation-high)" }}>
+      <header>
+        <img
+          alt={message.author.avatarDescription}
+          src={message.author.avatarSrc}
+        />
+        <a href="/users/{message.author.handle}">{message.author.name}</a>
+      </header>
+      <p>{message.content}</p>
+      <footer>
+        Posted
+        <time>{}</time>
+      </footer>
     </article>
   );
 }
