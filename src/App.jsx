@@ -11,6 +11,8 @@ const message = {
   },
 };
 
+const profileUrl = `/users/${message.author.handle}`;
+
 /*
 Here's the raw HTML:
 
@@ -39,12 +41,11 @@ function App() {
           alt={message.author.avatarDescription}
           src={message.author.avatarSrc}
         />
-        <a href="/users/{message.author.handle}">{message.author.name}</a>
+        <a href={{ profileUrl }}>{message.author.name}</a>
       </header>
       <p>{message.content}</p>
       <footer>
-        Posted
-        <time>{}</time>
+        Posted <time dateTime={message.published}>{formatDate(message.published)}</time>
       </footer>
     </article>
   );
